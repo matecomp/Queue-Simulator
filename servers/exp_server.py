@@ -7,16 +7,12 @@ class Server(object):
 	"""docstring for Server"""
 	def __init__(self, mu=1.0, start_time=0.0):
 		super(Server, self).__init__()
-		self.__is_empty = True
-		self.__mu = mu
-		self.__start_time = start_time
-		self.__last_service = start_time
-		self.__params = self.make_params_dict()
+		self.__params = self.make_params_dict(mu, start_time)
 
-	def make_params_dict(self):
+	def make_params_dict(self, mu, start_time):
 		return dict(zip(
 			["is_empty","mu","start_time","last_service"],
-			[self.__is_empty,self.__mu, self.__start_time, self.__last_service]
+			[True, mu, start_time, start_time]
 		))
 
 	#Retorna os parâmetros da classe
