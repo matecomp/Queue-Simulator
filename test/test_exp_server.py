@@ -5,11 +5,13 @@ from servers.exp_server import Server
 import pytest
 
 init_dict = dict(zip(
-					["is_empty","mu","start_time","last_service"],
+					["is_empty","mu","start_time","service"],
 					[True, 1.0, 0.0, 0.0]
 				))
+
 def test_init():
 	server = Server()
+	print(server.get_params())
 	assert server.get_params() == init_dict
 
 def test_do_service():
