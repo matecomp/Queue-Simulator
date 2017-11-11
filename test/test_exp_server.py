@@ -1,4 +1,4 @@
-# test_server.py
+# test_exp_server.py
 
 # -*- coding: utf-8 -*-
 from servers.exp_server import Server
