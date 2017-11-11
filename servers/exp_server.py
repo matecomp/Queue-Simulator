@@ -2,7 +2,6 @@
 import numpy as np
 
 
-
 class Server(object):
 	"""docstring for Server"""
 	def __init__(self, mu=1.0, start_time=0.0):
@@ -11,7 +10,7 @@ class Server(object):
 
 	def make_params_dict(self, mu, start_time):
 		return dict(zip(
-			["is_empty","mu","start_time","last_service"],
+			["is_empty","mu","start_time","service"],
 			[True, mu, start_time, start_time]
 		))
 
@@ -31,12 +30,12 @@ class Server(object):
 		beta = 1 / self.__params["mu"]
 		self.__params["is_empty"] = False
 		self.__params["start_time"] = start_time
-		self.__params["last_service"] = np.random.exponential(scale=beta, size=None)
-		return self.__params["last_service"]
+		self.__params["service"] = np.random.exponential(scale=beta, size=None)
+		return self.__params["service"]
 
 	#Dado o tempo atual da simulação, este método atualiza o servidor
 	def update(self, time):
-		self.__params["is_empty"] = time - self.__params["start_time"] >= self.__params["last_service"]
+		self.__params["is_empty"] = time - self.__params["start_time"] >= self.__params["service"]
 
 
 if __name__ == '__main__':
