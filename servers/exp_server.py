@@ -27,7 +27,7 @@ class Server(object):
 		#Caso o servidor esteja ocupado, não faça o serviço
 		assert self.__params["is_empty"]
 
-		beta = 1 / self.__params["mu"]
+		beta = 1./ self.__params["mu"]
 		self.__params["is_empty"] = False
 		self.__params["start_time"] = start_time
 		self.__params["service"] = np.random.exponential(scale=beta, size=None)
