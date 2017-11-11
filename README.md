@@ -18,7 +18,7 @@ init Queue-Simulator env:
 $ cd Queue-Simulator
 $ source bin/activate
 ```
-If ok, will be printed:
+If ok, will be print:
 ```sh
 (Queue-Simulator) server@localhost:~$
 ```
@@ -33,7 +33,7 @@ execute pytest files:
 $ pytest -q test/
 ```
 
-If ok, will be printed:
+If ok, will be print:
 ```sh
 .....
 5 passed in X.XX seconds
