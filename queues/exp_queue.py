@@ -32,7 +32,6 @@ class Queue(object):
 			return time_client
 		else:
 			self.__params["deque"].extend(time_client)
-			self.__params["start_time"] = time
 			return sum(time_client)
 
 	def pop_fcfs(self):
