@@ -12,7 +12,7 @@ class Queue(object):
 	def make_params_dict(self, lamb, start_time, deque):
 		return dict(zip(
 			["lambda", "beta", "start_time", "deque"],
-			[lamb, 1/lamb, start_time, deque]
+			[lamb, 1./lamb, start_time, deque]
 		))
 
 	def get_params(self):
@@ -28,9 +28,11 @@ class Queue(object):
 		time_client = np.random.exponential(scale=self.__params["beta"], size=size)
 		if size is None:
 			self.__params["deque"].append(time_client)
+			self.__params["start_time"] += time_client
 			return time_client
 		else:
 			self.__params["deque"].extend(time_client)
+			self.__params["start_time"] = time
 			return sum(time_client)
 
 	def pop_fcfs(self):
@@ -49,7 +51,7 @@ class Queue(object):
 
 		assert delta_time >= 0
 
-		while acc_time <= delta_time:
+		while acc_time <= (delta_time-0.0001):
 			acc_time += self.add_client()
 
 		if prot == 'LCFS':
