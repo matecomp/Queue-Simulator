@@ -34,8 +34,9 @@ class Server(object):
 		return self.__params["service"]
 
 	#Dado o tempo atual da simulação, este método atualiza o servidor
-	def update(self, time):
-		self.__params["is_empty"] = time - self.__params["start_time"] >= self.__params["service"]
+	def update(self, start_time):
+		self.__params["is_empty"] = (start_time - self.__params["start_time"]) >= (self.__params["service"] - 0.0001)
+		self.__params["start_time"] = start_time
 
 
 if __name__ == '__main__':
